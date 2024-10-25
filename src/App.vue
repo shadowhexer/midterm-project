@@ -1,77 +1,121 @@
-<script setup lang="ts">
-// import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/LoginDesktop.vue'
+<script lang="ts">
+export default {
+  data: () => ({
+    lists: [
+      { text: 'Home', link: '/' },
+      { text: 'About', link: '/about' },
+      { text: 'Services', link: '/services' },
+      { text: 'Contact', link: '/contact' }
+    ]
+  }),
+
+  methods: {
+    isActive(link: string) {
+      // Check if the current link is the active one
+      return window.location.pathname === link; // Use pathname for route matching
+    }
+  }
+}
 </script>
 
 <template>
-  <header>
+  <section id="main">
+    <nav>
+      <a href="#" class="logo">LOGO</a>
 
-    <div class="wrapper">
-      <HelloWorld />
+      <div class="toggle"></div>
+      <ul class="menu">
+        <li v-for="(list, l) in lists" :key="l" :class="{ active: isActive(list.link) }">
+          <a :href="list.link">{{ list.text }}</a>
+        </li>
+      </ul>
 
-      <nav>
-      </nav>
-    </div>
-  </header>
+      <!--language-->
+      <a href="#" class="lang">En</a>
+    </nav>
+  </section>
 
-  <!-- <RouterView /> -->
+  <router-view /> <!-- This line is equivalent to <RouterLink to="/"> </RouterLink> -->
 </template>
 
 <style>
-* {
-  box-sizing: border-box;
-}
-
 body {
   background: #f6f5f7;
-  color: #333 !important;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  font-family: 'Montserrat', sans-serif;
-  height: 100vh;
-  margin: -20px 0 50px;
+  margin: 0px;
+  padding: 0px;
 }
 
-h1 {
-  font-weight: bold;
-  margin: 0;
-}
-
-h2 {
-  text-align: center;
-}
-
-p {
-  font-size: 14px;
-  font-weight: 100;
-  line-height: 20px;
-  letter-spacing: 0.5px;
-  margin: 20px 0 30px;
-}
-
-span {
-  font-size: 12px;
+ul {
+  list-style: none;
 }
 
 a {
-  color: #333;
-  font-size: 14px;
   text-decoration: none;
-  margin: 15px 0;
 }
 
-footer p {
-  margin: 10px 0;
+#main {
+  padding: 30px 50px;
+  position: relative;
+  width: 100%;
+  /* height: 100vh; */
+  box-sizing: border-box;
+  background-size: 1330px;
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  background-image: url("../images/bg.png");
+  background-color: #edf1fd;
 }
 
-footer i {
-  color: red;
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 2px;
+  font-family: calibri;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 50px;
+  background-color: #F4F7FF;
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.05);
+  z-index: 1;
 }
 
-footer a {
-  color: #3c97bf;
-  text-decoration: none;
+.menu {
+  display: flex;
+}
+
+.menu li a {
+  padding: 10px 15px;
+  color: #6c707c;
+  font-size: 12px;
+
+}
+
+.lang {
+  color: #292929;
+}
+
+.logo {
+  font-size: 25px;
+  font-weight: bold;
+  color: #292929;
+  font-family: Poppins;
+}
+
+.toggle {
+  display: none;
+}
+
+.active a,
+.menu li a:hover {
+  background-color: #292929;
+  color: #FFF !important;
+  font-weight: bold;
+  transition: all ease 0.4s;
 }
 </style>
