@@ -15,7 +15,7 @@ const toggleSignIn = () => {
 </script>
 
 <template>
-  <v-container class="main-container" :class="{ 'right-panel-active': isSignUp }">
+  <v-container class="container" :class="{ 'right-panel-active': isSignUp }">
 
     <!-- Main Form Container -->
     <v-row class="form-box">
@@ -126,6 +126,10 @@ const toggleSignIn = () => {
   z-index: 2;
 }
 
+.container.right-panel-active .sign-in-container {
+  transform: translateX(100%);
+}
+
 .sign-up-container {
   left: 0;
   width: 50%;
@@ -133,16 +137,21 @@ const toggleSignIn = () => {
   z-index: 1;
 }
 
+.container.right-panel-active .sign-up-container {
+  transform: translateX(100%);
+  opacity: 1;
+  z-index: 5;
+  animation: show 0.6s;
+}
+
 @keyframes show {
 
-  0%,
-  49.99% {
+  0%, 49.99% {
     opacity: 0;
     z-index: 1;
   }
 
-  50%,
-  100% {
+  50%, 100% {
     opacity: 1;
     z-index: 5;
   }
@@ -194,39 +203,28 @@ const toggleSignIn = () => {
   transform: translateX(-20%);
 }
 
-.container.right-panel-active .overlay-left {
-  transform: translateX(0);
-}
-
 .overlay-right {
   right: 0;
   transform: translateX(0);
 }
 
-.container.right-panel-active .sign-in-container {
-  transform: translateX(100%);
-}
-
-.right-panel-active .sign-up-container {
-  transform: translateX(100%);
-  opacity: 1;
-  z-index: 5;
-  animation: show 0.6s;
-}
-
-.right-panel-active .overlay-container {
-  transform: translateX(-100%);
-}
-
-.right-panel-active .overlay {
-  transform: translateX(50%);
-}
-
-.right-panel-active .overlay-left {
+.container.right-panel-active .overlay-left {
   transform: translateX(0);
 }
 
-.right-panel-active .overlay-right {
+.container.right-panel-active .overlay-container {
+  transform: translateX(-100%);
+}
+
+.container.right-panel-active .overlay {
+  transform: translateX(50%);
+}
+
+.container.right-panel-active .overlay-left {
+  transform: translateX(0);
+}
+
+.container.right-panel-active .overlay-right {
   transform: translateX(20%);
 }
 </style>
