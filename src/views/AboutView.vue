@@ -13,7 +13,7 @@
         </div>
         <!--about-model----------------->
         <div class="about-model">
-            <img alt="model" src="images/about-model.png" />
+            <img alt="model" src="https://scontent.fcgy2-1.fna.fbcdn.net/v/t39.30808-6/459456357_1967072953794201_5954716566750958856_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeHsfKf5kt8HpTeryxI1xAZCxX1yQWgCew_FfXJBaAJ7D7iaoVDs2-F-IV7WQR93hxVvyM7Zv_IxBuudQujVLKh3&_nc_ohc=vre9sM-IAyMQ7kNvgGgNfmb&_nc_zt=23&_nc_ht=scontent.fcgy2-1.fna&_nc_gid=AbfADDcEJyDwHtEP2uwUxKk&oh=00_AYC3PNfl9vGc0JXD35qHPYDgYRql0BaUe4xhl7Td4HSqkA&oe=6721723D" />
         </div>
     </section>
 </template>
@@ -22,7 +22,7 @@
 #about {
     width: 100%;
     height: 100vh;
-    background-color: #161616;
+
     box-sizing: border-box;
     display: flex;
     align-items: center;
@@ -43,7 +43,7 @@
 
 .about-text h2 {
     font-size: 3rem;
-    color: #FFFFFF;
+    color: #000000;
     font-weight: 400;
 }
 
@@ -55,7 +55,7 @@ h2 {
 
 .about-text p {
     font-size: 1.2rem;
-    color: rgba(255, 255, 255, 0.90);
+    color: rgba(0, 0, 0, 0.9);
 
 }
 
@@ -71,5 +71,27 @@ h2 {
 .about-text button:hover {
     background-color: #FFFFFF;
     transition: all ease 0.3s;
+}
+
+@media(max-width:1190px){
+	.about-model img{
+		height:400px;
+	}
+}
+
+@media(max-width:970px){
+	.about-model{
+		display: none;
+	}
+	#about{
+		justify-content: center;
+		padding-top: 0px;
+	}
+	.about-text{
+		width: 90%;
+	}
+	.about-text h1{
+		font-size:4rem;
+	}	
 }
 </style>

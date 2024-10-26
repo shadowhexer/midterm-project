@@ -15,7 +15,7 @@
                     <!--type----------->
                     <div class="s-type">Front-End</div>
                     <!--name------->
-                    <img src="images/s1.png">
+                    <img src="C:/Users/HEXER/Pictures/Acer/PicsArt_08-24-07.14.53.jpg">
                 </div>
                 <!--text----------------->
                 <div class="s-b-text">
@@ -31,7 +31,7 @@
                     <!--type----------->
                     <div class="s-type">Back-End</div>
                     <!--name------->
-                    <img src="images/s2.png">
+                    <img src="C:/Users/HEXER/Pictures/Acer/Picsart_23-10-19_22-07-33-623.jpg">
                 </div>
                 <!--text----------------->
                 <div class="s-b-text">
@@ -47,7 +47,7 @@
                     <!--type----------->
                     <div class="s-type">SEO</div>
                     <!--name------->
-                    <img src="images/s3.jpg">
+                    <img src="C:/Users/HEXER/Pictures/Acer/Picsart_24-09-11_07-01-12-866_cropped.jpg">
                 </div>
                 <!--text----------------->
                 <div class="s-b-text">
@@ -172,5 +172,32 @@
     transform: translateY(-10px);
     transition: all ease 0.3s;
 
+}
+
+@media(max-width:1190px) {
+
+    #services {
+        height: auto;
+    }
+
+    .b-container {
+        flex-wrap: wrap;
+    }
+
+    .s-box {
+        flex-grow: 1;
+    }
+
+    .s-b-img img {
+        object-fit: cover;
+    }
+
+}
+
+@media(max-width:400px){
+	.s-box{
+		width: 100%;
+		height:400px;
+	}
 }
 </style>

@@ -1,27 +1,14 @@
-<script setup lang="ts">
-import TheWelcome from '../components/LoginDesktop.vue'
-import Header from '../components/Header.vue'
-</script>
-
 <template>
   <main>
-    <!-- <TheWelcome /> -->
-
-    <!--name--------------------------->
     <div class="name">
-      <!--hello------->
       <p>Hello</p>
-      <!--name--->
       <h1>I'm <font color="#17d1ac">James</font> Kamerun</h1>
-      <!--details--------------->
       <p class="details">In this Video I am gonna show you how to create a personal website with all pages.After
         Watching this tutorial you will be able to craete website like this</p>
-      <!--cv button-------------------->
-      <a href="#" class="cv-btn">Download Cv</a>
-
-
     </div>
-    <!--social---------------->
+    <div class="about-model">
+            <img alt="model" src="https://scontent.fcgy2-1.fna.fbcdn.net/v/t39.30808-6/459456357_1967072953794201_5954716566750958856_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeHsfKf5kt8HpTeryxI1xAZCxX1yQWgCew_FfXJBaAJ7D7iaoVDs2-F-IV7WQR93hxVvyM7Zv_IxBuudQujVLKh3&_nc_ohc=vre9sM-IAyMQ7kNvgGgNfmb&_nc_zt=23&_nc_ht=scontent.fcgy2-1.fna&_nc_gid=AbfADDcEJyDwHtEP2uwUxKk&oh=00_AYC3PNfl9vGc0JXD35qHPYDgYRql0BaUe4xhl7Td4HSqkA&oe=6721723D" />
+        </div>
     <div class="social">
       <a href="#"><i class="fab fa-facebook-f"></i></a>
       <a href="#"><i class="fab fa-twitter"></i></a>
@@ -55,44 +42,6 @@ import Header from '../components/Header.vue'
   color: #292929;
 }
 
-.cv-btn {
-  width: 200px;
-  height: 45px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #292929;
-  color: #FFFFFF;
-}
-
-.cv-btn:hover {
-  background-color: #131313;
-  transition: all ease 0.5s;
-}
-
-.black-line {
-  align-self: end;
-  width: 50%;
-  height: 15%;
-  margin-bottom: 4em;
-  position: absolute;
-  bottom: 0px;
-  left: -3%;
-  border-right: 1px solid rgba(41, 41, 41, 0.30);
-}
-
-.black-line::after {
-  content: ' ';
-  position: absolute;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 11px 11px 0 11px;
-  border-color: #292929 transparent transparent transparent;
-  right: -.7em;
-  bottom: -2px;
-}
-
 
 .social {
   position: absolute;
@@ -115,5 +64,42 @@ import Header from '../components/Header.vue'
 .social a:hover i {
   color: #17d1ac;
   transition: all ease 0.5s;
+}
+
+@media(max-width:1190px){
+	.about-model img{
+		height:400px;
+	}
+}
+
+@media(max-width:1190px){
+	.name{
+		left: 10%;
+		top: 50%;
+		transform: translate(-10%,-50%);
+	}
+}
+
+@media(max-width:970px){
+  .about-model{
+		display: none;
+	}
+  
+	.name{
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%,-50%);
+	}
+}
+
+@media(max-width:600px){
+	.name{
+		width:60%;
+	}
+
+	.social{
+		left: 30px;
+		transform: translateX(-10px);
+	}
 }
 </style>

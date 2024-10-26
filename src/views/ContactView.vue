@@ -165,4 +165,67 @@
     transform: scale(1.04);
     transition: all ease 0.1s;
 }
+
+@media(max-width:1190px) {
+    #contact-form form {
+        width: 95% !important;
+    }
+}
+
+@media(max-width:900px) {
+
+    #contact-form {
+        padding: 20px;
+        height: auto;
+        box-sizing: border-box;
+    }
+
+
+    #contact-form form {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+        width: 90% !important;
+
+    }
+
+    .contact-left,
+    .contact-right {
+        width: 100%;
+        border: none;
+    }
+
+    .f-name,
+    .f-email {
+        width: 100%;
+
+    }
+
+    .f-name input,
+    .f-email input {
+        width: 100%;
+        border: none;
+        background-color: #262626 !important;
+        padding: 10px;
+        box-sizing: border-box;
+        height: 40px;
+
+    }
+
+    textarea {
+        background-color: #262626 !important;
+        margin: 10px 0px;
+        padding: 10px;
+        height: 200px !important;
+        width: 100% !important;
+    }
+
+    .message {
+        margin: 0px;
+    }
+
+    #contact-form form h1 {
+        margin: 5px 0px;
+    }
+}
 </style>
