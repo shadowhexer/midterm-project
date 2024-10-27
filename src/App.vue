@@ -1,7 +1,14 @@
 <script lang="ts">
 import "/node_modules/flag-icons/css/flag-icons.min.css";
+import SvgIcon from '@jamescoyle/vue-icon';
+import { mdiMenu } from '@mdi/js';
 
 export default {
+  name: "my-component",
+  components: {
+    SvgIcon
+  },
+
   data: () => ({
     lists: [
       { text: 'Home', link: '/' },
@@ -10,15 +17,27 @@ export default {
       { text: 'Contact', link: '/contact' }
     ],
 
-    items: [
-      { title: 'EN', icon: 'fi fi-gb fis' },
-      { title: 'DE', icon: 'fi fi-de fis' },
-      { title: 'CN', icon: 'fi fi-cn fis' },
-      { title: 'VN', icon: 'fi fi-vn fis' },
-    ],
-    selectedItem: { title: 'EN', icon: 'fi fi-gb fis' },
-    mobileStatus: false,
+    // items: [
+    //   { title: 'EN', icon: 'fi fi-gb fis' },
+    //   { title: 'DE', icon: 'fi fi-de fis' },
+    //   { title: 'CN', icon: 'fi fi-cn fis' },
+    //   { title: 'VN', icon: 'fi fi-vn fis' },
+    // ],
+    // selectedItem: { title: 'EN', icon: 'fi fi-gb fis' },
+    showMobileMenu: false,
+    isMobile: false,
+    path: mdiMenu
   }),
+
+  mounted() {
+    this.checkScreen();
+    window.addEventListener("resize", this.checkScreen);
+    document.addEventListener("click", this.handleClickOutside);
+  },
+  beforeDestroy() {
+    window.removeEventListener("resize", this.checkScreen);
+    document.removeEventListener("click", this.handleClickOutside);
+  },
 
   methods: {
     isActive(link: string) {
@@ -26,58 +45,69 @@ export default {
       return window.location.pathname === link; // Use pathname for route matching
     },
 
-    selectItem(item) {
-      this.selectedItem = item;
+    // Language Selection
+    // selectItem(item) {
+    //   this.selectedItem = item;
+    // },
+
+    // // Literal Dropdown Menu
+    // showMenu() {
+    //   this.showMobileMenu = !this.showMobileMenu;
+    // },
+
+    checkScreen() {
+      this.isMobile = window.innerWidth <= 800;
     },
 
-    mobileMenu() {
-      this.mobileStatus = !this.mobileStatus;
+    handleClickOutside(event) {
+      const dropdown = this.$refs.dropdown;
+      if (dropdown && !dropdown.contains(event.target)) {
+        this.showMobileMenu = false;
+      }
     },
-
-    exitMobileMenu() {
-      this.mobileStatus = false;
-    }
   }
 }
 </script>
 
 <template>
-  <section id="main">
+  <v-app>
+    <main ref="dropdown">
 
-    <div id="header">
-      <a href="#" class="logo">LOGO</a>
-    </div>
-    
-    <nav>
-      <ul :class="{ menu: true, 'active-menu': isMobileMenuOpen }">
-        <li v-for="(list, l) in lists" :key="l" :class="{ active: isActive(list.link) }">
-          <a :href="list.link">{{ list.text }}</a>
-        </li>
-      </ul>
+      <section id="header">
+        <v-app-bar :flat="true" color="#242424" app>
 
-      <div class="toggle" @click="mobileMenu"></div>
-    </nav>
+          <v-toolbar-title>
+            <a href="/" class="logo">LOGO</a>
+          </v-toolbar-title>
 
-    <!--language-->
-    <v-menu open-on-hover>
-        <v-list>
-          <v-list-item v-for="(item, index) in items" :key="index" @click="selectItem(item)">
-            <v-list-item-title>{{ item.title }}<span :class="item.icon"></span></v-list-item-title>
-          </v-list-item>
-        </v-list>
+          <nav>
+            <ul :class="{ menu: true }">
+              <li v-for="(list, l) in lists" :key="l" :class="{ active: isActive(list.link) }">
+                <a :href="list.link">{{ list.text }}</a>
+              </li>
+            </ul>
+          </nav>
 
-        <template v-slot:activator="{ props }">
-          <v-btn class="lang" color="#292929" v-bind="props" variant="text" size="large">
-            {{ selectedItem.title }}
-            <span :class="selectedItem.icon"></span>
-          </v-btn>
-        </template>
+          <div v-if="isMobile">
+            <v-app-bar-nav-icon @click.stop="showMobileMenu = !showMobileMenu" variant="text" color="white"
+              size="x-large"><svg-icon width="30" height="30" type="mdi" :path="path"></svg-icon>
+            </v-app-bar-nav-icon>
+          </div>
 
-      </v-menu>
-      
-  </section>
+        </v-app-bar>
 
-  <router-view /> <!-- This line is equivalent to <RouterLink to="/"> </RouterLink> -->
+        <v-navigation-drawer v-model="showMobileMenu" location="right" temporary :elevation="1">
+          <v-list>
+            <v-list-item v-for="(list, l) in lists" :key="l" :class="{ active: isActive(list.link) }">
+              <a :href="list.link">{{ list.text }}</a>
+            </v-list-item>
+          </v-list>
+        </v-navigation-drawer>
+      </section>
+    </main>
+
+    <router-view /> <!-- This line is equivalent to <RouterLink to="/"> </RouterLink> -->
+  </v-app>
 </template>
 
 <style>
@@ -95,7 +125,7 @@ a {
   text-decoration: none;
 }
 
-#main {
+#header {
   box-sizing: border-box;
   background-size: 1330px;
   background-position: right bottom;
@@ -103,38 +133,32 @@ a {
   transition: all 0.5s;
   background-image: url("C:/Users/HEXER/Pictures/Acer/Picsart_23-10-19_22-07-33-623_wp.jpg");
   background-color: #edf1fd;
-  
   display: flex;
   justify-content: space-between;
   align-items: center;
   text-transform: uppercase;
-  letter-spacing: 2px;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 10px 50px;
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.05);
   z-index: 1;
 }
 
-#main.header-scrolled {
+#header.header-scrolled {
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
   padding: 12px 0;
 }
 
-#main.header-inner-pages {
+#header.header-inner-pages {
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
 }
 
-#main .logo {
+#header .logo {
   font-size: 25px;
   font-weight: bold;
-  color: #292929;
+  color: #fffdfd;
   font-family: Poppins;
 }
 
-#main .logo img {
+#header .logo img {
   max-height: 40px;
 }
 
@@ -148,7 +172,7 @@ nav ul {
 
 nav li a {
   padding: 10px 15px;
-  color: #6c707c;
+  color: #bbc3de;
   font-size: 15px;
   margin: 10px 15px;
 }
@@ -164,88 +188,21 @@ nav a:focus {
 
 nav .active a,
 nav li a:hover {
-  background-color: #292929;
-  color: #FFF !important;
+  background-color: #29292900;
+  color: rgb(47, 255, 47) !important;
   transition: all ease 0.4s;
 }
 
-nav .lang,
-nav .lang:focus {
-  padding: 8px 25px;
-  margin-left: 30px;
-  border-radius: 4px;
-  font-weight: 400;
-  color: #fff;
+v-navigation-drawer v-list {
+  display: none;
 }
 
-nav .lang:hover,
-nav .lang:focus:hover {
-  color: #fff;
-}
-
-nav .dropdown ul {
+.lang {
   display: block;
-  position: absolute;
-  left: 14px;
-  top: calc(100% + 30px);
-  margin: 0;
-  padding: 10px 0;
-  z-index: 99;
-  opacity: 0;
-  visibility: hidden;
-  background: #ffffff;
-  box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
-  transition: 0.3s;
 }
 
-nav .dropdown ul li {
-  min-width: 200px;
-}
-
-nav .dropdown ul a {
-  padding: 10px 20px;
-  font-size: 15px;
-  text-transform: none;
-  font-weight: 400;
-}
-
-nav .dropdown ul a i {
-  font-size: 12px;
-}
-
-nav .dropdown ul a:hover,
-nav .dropdown ul .active:hover,
-nav .dropdown ul li:hover>a {
-  color: #ec9a29;
-}
-
-nav .dropdown:hover>ul {
-  opacity: 1;
-  top: 100%;
-  visibility: visible;
-}
-
-nav .dropdown .dropdown ul {
-  top: 0;
-  left: calc(100% - 30px);
-  visibility: hidden;
-}
-
-nav .dropdown .dropdown:hover>ul {
-  opacity: 1;
-  top: 0;
-  left: 100%;
-  visibility: visible;
-}
-
-@media (max-width: 1366px) {
-  nav .dropdown .dropdown ul {
-    left: -90%;
-  }
-
-  nav .dropdown .dropdown:hover>ul {
-    left: -100%;
-  }
+.toggle {
+  display: none;
 }
 
 .fi.fis {
@@ -253,55 +210,58 @@ nav .dropdown .dropdown:hover>ul {
   margin: 5px 0px;
 }
 
+@media (min-width: 800px) {
+  .v-app-bar {
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 50px;
+    letter-spacing: 2px;
+  }
+}
+
 @media(max-width:1190px) {
-  #main {
+  #header {
     background-size: 1150px !important;
   }
 }
 
 @media(max-width:970px) {
-  #main {
+  #header {
     background-image: none !important;
   }
 }
 
-@media(max-width:900px) {
-  .toggle {
-    display: block;
+@media(max-width: 800px) {
+
+  .v-app-bar {
+    padding: 0 50px;
+    letter-spacing: 2px;
   }
 
-  .toggle:before {
-    content: '\f0c9';
-    font-family: fontAwesome;
-    line-height: 0px;
-    margin-left: -30px;
-  }
-
-  .toggle.active:before {
-    content: '\f00d' !important;
-
+  v-list a {
+    color:darkgreen !important;
   }
 
   nav {
-    padding: 10px 30px;
+    width: 200px !important;
+  }
+
+  nav a,
+  nav a:focus {
+    display: flex;
+    align-items: center;
+    justify-content: center !important;
+    transition: 0.3s;
+    font-weight: bold;
   }
 
   nav ul {
-    position: absolute;
-    width: 100%;
-    height: auto;
-    box-sizing: border-box;
-    background-color: #0F0F0F;
-    top: 50px;
-    left: 0;
-    transition: 0.5s;
-    overflow: hidden;
     display: none !important;
-    border: 3px solid #1F1F1F;
   }
 
   nav ul li a {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.212);
     color: #ffffff !important;
     width: 100%;
     height: 50px;
@@ -317,13 +277,28 @@ nav .dropdown .dropdown:hover>ul {
     margin: 0px;
   }
 
+  nav .active a,
+  nav li a:hover {
+    background-color: #4a4a4a;
+    color: #FFF !important;
+    transition: all ease 0.4s;
+  }
+
   .active-menu {
     display: block !important;
+    right: 0 !important;
   }
 
   nav ul li a:hover {
     background-color: rgba(27, 29, 32, 0.15);
 
+  }
+}
+
+@media (max-width: 432px) {
+  .v-app-bar {
+    padding: 0 5px;
+    letter-spacing: 2px;
   }
 }
 </style>
