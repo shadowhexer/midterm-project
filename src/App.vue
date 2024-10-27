@@ -110,9 +110,9 @@ export default {
 
       </section>
     </main>
-
-    <router-view /> <!-- This line is equivalent to <RouterLink to="/"> </RouterLink> -->
   </v-app>
+  
+  <router-view /> <!-- This line is equivalent to <RouterLink to="/"> </RouterLink> -->
 </template>
 
 <style>
