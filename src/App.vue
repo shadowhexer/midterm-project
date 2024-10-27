@@ -16,14 +16,6 @@ export default {
       { text: 'Services', link: '/services' },
       { text: 'Contact', link: '/contact' }
     ],
-
-    // items: [
-    //   { title: 'EN', icon: 'fi fi-gb fis' },
-    //   { title: 'DE', icon: 'fi fi-de fis' },
-    //   { title: 'CN', icon: 'fi fi-cn fis' },
-    //   { title: 'VN', icon: 'fi fi-vn fis' },
-    // ],
-    // selectedItem: { title: 'EN', icon: 'fi fi-gb fis' },
     showMobileMenu: false,
     isMobile: false,
     path: mdiMenu
@@ -44,16 +36,6 @@ export default {
       // Check if the current link is the active one
       return window.location.pathname === link; // Use pathname for route matching
     },
-
-    // Language Selection
-    // selectItem(item) {
-    //   this.selectedItem = item;
-    // },
-
-    // // Literal Dropdown Menu
-    // showMenu() {
-    //   this.showMobileMenu = !this.showMobileMenu;
-    // },
 
     checkScreen() {
       this.isMobile = window.innerWidth <= 800;
@@ -77,32 +59,55 @@ export default {
         <v-app-bar :flat="true" color="#242424" app>
 
           <v-toolbar-title>
-            <a href="/" class="logo">LOGO</a>
+            <a href="/" class="logo">ARM</a>
           </v-toolbar-title>
 
           <nav>
             <ul :class="{ menu: true }">
-              <li v-for="(list, l) in lists" :key="l" :class="{ active: isActive(list.link) }">
+              <li 
+                v-for="(list, l) in lists" 
+                :key="l" 
+                :class="{ active: isActive(list.link) }"
+              >
                 <a :href="list.link">{{ list.text }}</a>
               </li>
             </ul>
           </nav>
 
           <div v-if="isMobile">
-            <v-app-bar-nav-icon @click.stop="showMobileMenu = !showMobileMenu" variant="text" color="white"
-              size="x-large"><svg-icon width="30" height="30" type="mdi" :path="path"></svg-icon>
+            <v-app-bar-nav-icon 
+              @click.stop="showMobileMenu = !showMobileMenu" 
+              variant="text" color="white"
+              size="x-large"
+            >
+              <svg-icon 
+                width="30" 
+                height="30" 
+                type="mdi" 
+                :path="path"
+              ></svg-icon>
             </v-app-bar-nav-icon>
           </div>
 
         </v-app-bar>
 
-        <v-navigation-drawer v-model="showMobileMenu" location="right" temporary :elevation="1">
+        <v-navigation-drawer 
+          v-model="showMobileMenu" 
+          location="right" 
+          temporary 
+          :elevation="1"
+        >
           <v-list>
-            <v-list-item v-for="(list, l) in lists" :key="l" :class="{ active: isActive(list.link) }">
+            <v-list-item 
+              v-for="(list, l) in lists" 
+              :key="l" 
+              :class="{ active: isActive(list.link) }"
+            >
               <a :href="list.link">{{ list.text }}</a>
             </v-list-item>
           </v-list>
         </v-navigation-drawer>
+
       </section>
     </main>
 
@@ -140,6 +145,7 @@ a {
   position: fixed;
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.05);
   z-index: 1;
+  letter-spacing: 2px;
 }
 
 #header.header-scrolled {
@@ -156,10 +162,12 @@ a {
   font-weight: bold;
   color: #fffdfd;
   font-family: Poppins;
+  letter-spacing: 2px;
 }
 
-#header .logo img {
-  max-height: 40px;
+#header .logo:hover {
+  background-color: #29292900;
+  color: rgb(47, 255, 47) !important;
 }
 
 nav {
@@ -193,10 +201,6 @@ nav li a:hover {
   transition: all ease 0.4s;
 }
 
-v-navigation-drawer v-list {
-  display: none;
-}
-
 .lang {
   display: block;
 }
@@ -210,13 +214,17 @@ v-navigation-drawer v-list {
   margin: 5px 0px;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 801.60px) {
   .v-app-bar {
     top: 0;
     left: 0;
     width: 100%;
     padding: 10px 50px;
-    letter-spacing: 2px;
+  }
+
+  .v-navigation-drawer {
+    display: none !important;
+    width: 0 !important;
   }
 }
 
