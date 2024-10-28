@@ -13,7 +13,7 @@
         </div>
         <!--about-model----------------->
         <div class="about-model">
-            <img alt="model" src="https://scontent.fcgy2-1.fna.fbcdn.net/v/t39.30808-6/459456357_1967072953794201_5954716566750958856_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeHsfKf5kt8HpTeryxI1xAZCxX1yQWgCew_FfXJBaAJ7D7iaoVDs2-F-IV7WQR93hxVvyM7Zv_IxBuudQujVLKh3&_nc_ohc=vre9sM-IAyMQ7kNvgGgNfmb&_nc_zt=23&_nc_ht=scontent.fcgy2-1.fna&_nc_gid=AbfADDcEJyDwHtEP2uwUxKk&oh=00_AYC3PNfl9vGc0JXD35qHPYDgYRql0BaUe4xhl7Td4HSqkA&oe=6721723D" />
+            <img alt="model" src="/src/assets/Picsart_23-04-07_20-07-57-249%20[problembo.com]%20(1)%20(1).png" />
         </div>
     </section>
 </template>

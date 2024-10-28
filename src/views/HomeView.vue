@@ -1,26 +1,81 @@
+<script>
+import SvgIcon from '@jamescoyle/vue-icon';
+import { mdiFacebook, mdiTwitter, mdiReddit, mdiYoutube } from '@mdi/js';
+
+export default {
+  name: "my-component",
+  components: {
+    SvgIcon
+  },
+  data() {
+    return {
+      modelImage: "./src/assets/Picsart_23-04-07_20-07-57-249%20[problembo.com]%20(1)%20(1).png",
+      socialLinks: [
+        { icon: mdiFacebook, url: "https://facebook.com/ar.manlangit10", color: "#3b5998" },
+        { icon: mdiTwitter, url: "https://x.com/Chelz_4L", color: "#1da1f2" },
+        { icon: mdiReddit, url: "https://reddit.com/user/Chelz4L", color: "#FF4500" },
+        { icon: mdiYoutube, url: "https://youtube.com/@hexer-chan5303", color: "#ff0000" }
+      ]
+    };
+  }
+};
+</script>
+
 <template>
-  <main>
-    <div class="name">
-      <p>Hello</p>
-      <h1>I'm <font color="#17d1ac">James</font> Kamerun</h1>
-      <p class="details">In this Video I am gonna show you how to create a personal website with all pages.After
-        Watching this tutorial you will be able to craete website like this</p>
-    </div>
-    <div class="about-model">
-            <img alt="model" src="https://scontent.fcgy2-1.fna.fbcdn.net/v/t39.30808-6/459456357_1967072953794201_5954716566750958856_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeHsfKf5kt8HpTeryxI1xAZCxX1yQWgCew_FfXJBaAJ7D7iaoVDs2-F-IV7WQR93hxVvyM7Zv_IxBuudQujVLKh3&_nc_ohc=vre9sM-IAyMQ7kNvgGgNfmb&_nc_zt=23&_nc_ht=scontent.fcgy2-1.fna&_nc_gid=AbfADDcEJyDwHtEP2uwUxKk&oh=00_AYC3PNfl9vGc0JXD35qHPYDgYRql0BaUe4xhl7Td4HSqkA&oe=6721723D" />
-        </div>
-    <div class="social">
-      <a href="#"><i class="fab fa-facebook-f"></i></a>
-      <a href="#"><i class="fab fa-twitter"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-youtube"></i></a>
-    </div>
-  </main>
+
+    <v-container fluid>
+      <!-- Main Section -->
+      <v-row class="home" align="center" justify="center">
+        
+        <!-- Text Section -->
+        <v-col cols="12" md="6">
+          <div class="name">
+            <p>Hey there!</p>
+            <h1>It's <span style="color: #17d1ac">Austin</span> Rey</h1>
+            <p class="details">
+              Welcome to this page. I don't have much thing to say but, how about a tour around here? This page is meant for compliance on the IT110 Midterm Exam so not all components are well optimised. Anyway, enjoy yourself.
+            </p>
+            <br>
+            <p class="details">Oh, watch out for the other project. I heard it's called 
+              <span class="font-weight-bold" style="color: rgb(238 255 0 / 20%);">OnlyCorn</span>.</p>
+          </div>
+        </v-col>
+
+        <!-- Image Section -->
+        <v-col cols="12" class="home-model">
+          <v-img
+            :src="modelImage"
+            alt="model"
+            max-width="50%"
+            contain
+          />
+        </v-col>
+        
+      </v-row>
+
+      <!-- Social Media Links -->
+      <v-row class="social" align="center" justify="center">
+        <v-btn icon v-for="(link, index) in socialLinks" :key="index" :href="link.url" target="_blank">
+          <v-icon :color="link.color" size="x-large">
+            <svg-icon 
+              type="mdi" 
+              :path="link.icon"
+            />
+          </v-icon>
+        </v-btn>
+      </v-row>
+    </v-container>
+
 </template>
 
 <style scoped>
+
+#home {
+  display: flex;
+  font-family: 'Trebuchet MS', sans-serif;;
+}
+
 .name {
-  font-family: calibri;
   width: 500px;
   position: absolute;
   left: 20%;
@@ -42,6 +97,11 @@
   color: #292929;
 }
 
+.home-model {
+  position:fixed !important;
+  left: 50%;
+}
+
 
 .social {
   position: absolute;
@@ -58,7 +118,6 @@
 
 .social i {
   color: rgba(18, 17, 17, 0.40);
-  font-size: 14px;
 }
 
 .social a:hover i {
@@ -67,7 +126,7 @@
 }
 
 @media(max-width:1190px){
-	.about-model img{
+	.home-model img{
 		height:400px;
 	}
 }
@@ -81,7 +140,7 @@
 }
 
 @media(max-width:970px){
-  .about-model{
+  .home-model{
 		display: none;
 	}
   
