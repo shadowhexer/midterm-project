@@ -42,7 +42,7 @@ export default {
         </v-col>
 
         <!-- Image Section -->
-        <v-col cols="12" class="home-model">
+        <v-col class="home-model">
           <v-img
             :src="modelImage"
             alt="model"
@@ -55,7 +55,13 @@ export default {
 
       <!-- Social Media Links -->
       <v-row class="social" align="center" justify="center">
-        <v-btn icon v-for="(link, index) in socialLinks" :key="index" :href="link.url" target="_blank">
+        <v-btn icon 
+          v-for="(link, index) in socialLinks" 
+          :key="index"
+          variant="text"
+          :href="link.url" 
+          target="_blank"
+          >
           <v-icon :color="link.color" size="x-large">
             <svg-icon 
               type="mdi" 
@@ -73,6 +79,16 @@ export default {
 #home {
   display: flex;
   font-family: 'Trebuchet MS', sans-serif;;
+}
+
+.home-model {
+  max-width: 100%; /* Allows the image to shrink on smaller screens */
+  max-height: 100%;
+  object-fit: cover !important;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .name {
@@ -95,11 +111,6 @@ export default {
   margin: 0px;
   letter-spacing: 3px;
   color: #292929;
-}
-
-.home-model {
-  position:fixed !important;
-  left: 50%;
 }
 
 
@@ -125,18 +136,82 @@ export default {
   transition: all ease 0.5s;
 }
 
-@media(max-width:1190px){
-	.home-model img{
-		height:400px;
-	}
+@media (min-height: 1080px) and (min-width: 1920px) {
+  .home-model {
+    position: fixed !important;
+    width: 2000px;
+    height: 1000px;
+    left: 50%;
+    margin-top: 200px;
+    }
 }
 
-@media(max-width:1190px){
-	.name{
+@media (min-height: 975px) {
+  .home-model {
+    position: fixed !important;
+    width: 2000px;
+    height: 1000px;
+    left: 50%;
+    margin-top: 170px;
+    }
+}
+
+@media (min-height: 900px) and (max-height: 975px) {
+  .home-model {
+    position: fixed !important;
+    width: 2000px;
+    height: 1000px;
+    left: 50%;
+    margin-top: 30px;
+    }
+}
+
+@media (min-width: 1400px) and (max-width: 1920px) {
+  .home-model {
+    position: fixed !important;
+    width: 2000px;
+    height: 900px;
+    left: 50%;
+    margin-top: 20px;
+    }
+}
+
+@media (min-width: 1190px) and (max-width: 1400px) {
+  .home-model {
+    position: fixed !important;
+    width: 2000px;
+    height: 600px;
+    left: 50%;
+    margin-top: 130px;
+    }
+}
+
+@media (min-width: 1024px) and (max-width:1190px){
+	.home-model {
+    position: fixed !important;
+    width: 950px;
+    height: 500px;
+    left: 55%;
+    margin-top: 255px;
+  }
+
+  .name{
 		left: 10%;
 		top: 50%;
 		transform: translate(-10%,-50%);
 	}
+}
+
+@media (min-width: 970px) and (max-width: 1024px) {
+
+  .home-model {
+    position: fixed !important;
+    width: 950px;
+    height: 500px;
+    left: 55%;
+    margin-top: 860px;
+  }
+
 }
 
 @media(max-width:970px){
