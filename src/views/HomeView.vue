@@ -77,8 +77,8 @@ export default {
 <style scoped>
 
 #home {
-  display: flex;
-  font-family: 'Trebuchet MS', sans-serif;;
+  font-family: 'Trebuchet MS', sans-serif;
+  overflow: hidden !important;
 }
 
 .home-model {
