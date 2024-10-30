@@ -1,231 +1,146 @@
-<template>
-    <!--contact-form------------------->
-    <section id="contact-form">
-        <form>
-            <!--left--------------------------------------->
-            <div class="contact-left">
-                <h1 class="c-l-heading">
-                    <font style="border-bottom: 3px solid #1ED98B;">Writ</font>e us
-                </h1>
-                <!--name-------->
-                <div class="f-name">
-                    <font>Name</font>
-                    <input type="text" placeholder="Full Name" />
-                </div>
-                <!--email-------->
-                <div class="f-email">
-                    <font>Email</font>
-                    <input type="email" placeholder="Example@gmail.com" />
-                </div>
-            </div>
-            <!--right------------------------------------------->
-            <div class="contact-right">
-                <!--message-------->
-                <div class="message">
-                    <font>Message</font>
-                    <textarea name="message" rows="5" cols="20" placeholder="Write Message..."></textarea>
-                </div>
-                <!--submit-btn------------>
-                <button>submit</button>
-            </div>
+<script>
+export default {
+    data() {
+        return {
+            formData: {
+                name: "",
+                email: "",
+                message: "",
+            },
+            rules: {
+                required: (value) => !!value || "This field is required",
+                email: (value) => {
+                    const pattern = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
+                    return pattern.test(value) || "Invalid email format";
+                },
+            },
+            max: 20,
+            loading: false,
+            valid: false,
+        };
+    },
+    methods: {
+        async submitForm() {
+            // Validate form before submitting
+            if (!this.$refs.contactForm.validate()) {
+                return;
+            }
+            
+            // Set loading to true
+            this.loading = true;
 
-        </form>
-    </section>
+            try {
+                // Simulate form submission (replace with actual submission logic)
+                await new Promise((resolve) => setTimeout(resolve, 3000)); // Simulate delay
+
+                // Handle successful form submission logic here
+                alert("Form submitted successfully!");
+            } catch (error) {
+                // Handle form submission error here
+                alert("Error submitting form:", error);
+            } finally {
+                // Reset loading state
+                this.loading = false;
+            }
+        },
+
+        maxNameLength(event) {
+            if(this.formData.name.length > this.max) {
+                this.formData.name = this.formData.name.slice(0, this.max);
+            }
+        }
+    },
+};
+</script>
+
+<template>
+    <v-container class="mt-10 my-md-16 my-sm-16" width="700px">
+        <v-row justify="center">
+            <v-col cols="12">
+                <v-card class="pa-4">
+                    <v-card-title class="text-h4 mb-n3" align="center">
+                        Feedback Form
+                    </v-card-title>
+                    <v-card-subtitle class="text-caption mb-6" align="center">
+                        Feedback provided is automatically sent to my email.
+                    </v-card-subtitle>
+                    <v-form ref="contactForm" v-model="valid" @submit.prevent="submitForm">
+                        <v-row>
+                            <!-- Name Field -->
+                            <v-col cols="12" md="6">
+                                <v-text-field 
+                                    label="Name" 
+                                    v-model="formData.name" 
+                                    :rules="[rules.required]"
+                                    :counter="max"
+                                    @input="maxNameLength"
+                                    placeholder="Full Name" 
+                                    outlined 
+                                />
+                            </v-col>
+
+                            <!-- Email Field -->
+                            <v-col cols="12" md="6">
+                                <v-text-field 
+                                    label="Email" 
+                                    v-model="formData.email"
+                                    :rules="[rules.required, rules.email]" 
+                                    placeholder="example@email.com"
+                                    outlined 
+                                />
+                            </v-col>
+
+                            <!-- Message Field -->
+                            <v-col cols="12">
+                                <v-textarea 
+                                    label="Message" 
+                                    v-model="formData.message" 
+                                    :rules="[rules.required]"
+                                    placeholder="Write Message..." 
+                                    outlined 
+                                    rows="5" 
+                                />
+                            </v-col>
+                        </v-row>
+
+                        <!-- Submit Button -->
+                        <v-card-actions class="mt-4 justify-space-around">
+                            <v-btn 
+                                color="#1ED98B" 
+                                :loading="loading" 
+                                :disabled="loading || !valid" 
+                                @click="submitForm"
+                                variant="flat" 
+                                block
+                            >
+                                Submit
+                                <template v-slot:loader>
+                                    <span>Loading...</span>
+                                </template>
+                            </v-btn>
+                        </v-card-actions>
+                    </v-form>
+                </v-card>
+            </v-col>
+        </v-row>
+    </v-container>
 </template>
 
+
 <style scoped>
-#contact-form {
-    width: 100%;
-    height: 90vh;
+
+.custom-loader {
+    animation: loader 1s infinite;
     display: flex;
-    justify-content: center;
-    align-items: center;
-
 }
 
-#contact-form form {
-    display: flex;
-    width: 70%;
-    height: 60vh;
-    background-color: #1A1A1A;
-    box-shadow: 2px 12px 20px rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.01)
-}
-
-.contact-left {
-    width: 40%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.contact-right {
-    width: 60%;
-    height: 100%;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    border-left: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.contact-right button {
-    width: 100%;
-    height: 50px;
-    background-color: #1ED98B;
-    font-weight: bold;
-    outline: none;
-    border: none;
-    margin: 0px;
-    color: #1B1B1B;
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-
-}
-
-.c-l-heading {
-    font-family: calibri;
-    color: #FFFFFF;
-    font-size: 3rem;
-    letter-spacing: 2px;
-    font-weight: 400;
-
-}
-
-.f-name,
-.f-email {
-    display: flex;
-    flex-direction: column;
-    font-family: calibri;
-
-}
-
-.f-name font,
-.f-email font {
-    color: #BFBFBF;
-    font-size: 22px;
-}
-
-.f-name input,
-.f-email input {
-    height: 30px;
-    width: 250px;
-    border: none;
-    outline: none;
-    background-color: transparent;
-    border-bottom: 1px solid #929292;
-    color: #FFFFFF;
-    margin: 10px 0px;
-}
-
-.f-email input::placeholder,
-.f-name input::placeholder {
-    opacity: 0.5;
-    letter-spacing: 1px;
-}
-
-.f-email input:focus,
-.f-name input:focus {
-    border-bottom: 1px solid #17d1ac;
-    transition: all ease 0.5s;
-}
-
-.message font {
-    font-size: 18px;
-    color: #4E4E4E;
-    font-family: calibri;
-
-}
-
-.message {
-    margin: 20px;
-}
-
-.contact-right textarea {
-    width: 100% !important;
-    height: 320px !important;
-    border: none;
-    outline: none;
-    background-color: transparent;
-    box-sizing: border-box;
-    color: #EBEBEB;
-    font-size: 16px;
-}
-
-.contact-right textarea::placeholder {
-    color: #EBEBEB;
-    font-size: 18px;
-    letter-spacing: 2px;
-    font-family: calibri;
-}
-
-.contact-right button:active {
-    transform: scale(1.04);
-    transition: all ease 0.1s;
-}
-
-@media(max-width:1190px) {
-    #contact-form form {
-        width: 95% !important;
-    }
-}
-
-@media(max-width:900px) {
-
-    #contact-form {
-        padding: 20px;
-        height: auto;
-        box-sizing: border-box;
+@keyframes loader {
+    from {
+        transform: rotate(0);
     }
 
-
-    #contact-form form {
-        flex-direction: column;
-        height: auto;
-        padding: 20px;
-        width: 90% !important;
-
-    }
-
-    .contact-left,
-    .contact-right {
-        width: 100%;
-        border: none;
-    }
-
-    .f-name,
-    .f-email {
-        width: 100%;
-
-    }
-
-    .f-name input,
-    .f-email input {
-        width: 100%;
-        border: none;
-        background-color: #262626 !important;
-        padding: 10px;
-        box-sizing: border-box;
-        height: 40px;
-
-    }
-
-    textarea {
-        background-color: #262626 !important;
-        margin: 10px 0px;
-        padding: 10px;
-        height: 200px !important;
-        width: 100% !important;
-    }
-
-    .message {
-        margin: 0px;
-    }
-
-    #contact-form form h1 {
-        margin: 5px 0px;
+    to {
+        transform: rotate(360deg);
     }
 }
 </style>
