@@ -31,7 +31,7 @@ export default {
         <v-col cols="12" md="6">
           <div class="name">
             <p>Hey there!</p>
-            <h1>It's <span style="color: #17d1ac">Austin</span> Rey</h1>
+            <h1>It's <span style="color: green">Austin</span> Rey</h1>
             <p class="details">
               Welcome to this page. I don't have much thing to say but, how about a tour around here? This page is meant for compliance on the IT110 Midterm Exam so not all components are well optimised. Anyway, enjoy yourself.
             </p>
@@ -166,7 +166,7 @@ export default {
     }
 }
 
-@media (min-width: 1400px) and (max-width: 1920px) {
+@media (min-width: 1400px) and (max-width: 1921px) {
   .home-model {
     position: fixed !important;
     width: 2000px;
