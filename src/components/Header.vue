@@ -1,6 +1,5 @@
-<script>
-import "/node_modules/flag-icons/css/flag-icons.min.css";
-import SvgIcon from '@jamescoyle/vue-icon';
+<script lang="ts">
+import { SvgIcon } from '@jamescoyle/vue-icon';
 import { mdiMenu } from '@mdi/js';
 
 export default {
@@ -130,7 +129,6 @@ a {
   background-position: right bottom;
   background-repeat: no-repeat;
   transition: all 0.5s;
-  background-image: url("C:/Users/HEXER/Pictures/Acer/Picsart_23-10-19_22-07-33-623_wp.jpg");
   background-color: #edf1fd;
   display: flex;
   justify-content: space-between;
