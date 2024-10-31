@@ -10,8 +10,8 @@ export default {
             message: "",
         },
         rules: {
-            required: (value) => !!value || "This field is required",
-            email: (value) => {
+            required: (value: String) => !!value || "This field is required",
+            email: (value: String) => {
                 const pattern = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
                 return pattern.test(value) || "Invalid email format";
             },
@@ -20,10 +20,15 @@ export default {
         loading: false,
         valid: false,
     }),
+    computed: {
+        form(): Vue {
+            return this.$refs.contactForm as Vue
+        }
+    },
     methods: {
         submitForm() {
             // Validate form before submitting
-            if (!this.$refs.contactForm.validate()) {
+            if (!this.form.validate()) {
                 return;
             }
 
@@ -45,7 +50,7 @@ export default {
                         email: "",
                         message: "",
                     };
-                    this.$refs.contactForm.reset(); // Reset Vuetify form validation
+                    this.form.reset(); // Reset Vuetify form validation
                 },
                     (error) => {
                         // Handle form submission error here
@@ -57,7 +62,7 @@ export default {
                 });
         },
 
-        maxNameLength(event) {
+        maxNameLength(event: KeyboardEvent) {
             if (this.formData.name.length > this.max) {
                 this.formData.name = this.formData.name.slice(0, this.max);
             }
