@@ -10,7 +10,7 @@ export default defineConfig({
     vue(),
     vueDevTools(),
   ],
-  assetsInclude: ['**/*.png', '**/*.jpg', '**/*.svg'],
+  assetsInclude: ['**/*.png', '**/*.jpg', '**/*.svg', './src/assets/*.png'], // include your image formats here
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
