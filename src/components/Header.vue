@@ -41,9 +41,9 @@ export default {
       this.isMobile = window.innerWidth <= 800;
     },
 
-    handleClickOutside(event) {
-      const dropdown = this.$refs.dropdown;
-      if (dropdown && !dropdown.contains(event.target)) {
+    handleClickOutside(event: MouseEvent) {
+      const dropdown = this.$refs.dropdown as HTMLElement | null;
+      if (dropdown && !dropdown.contains(event.target as Node)) {
         this.showMobileMenu = false;
       }
     },
