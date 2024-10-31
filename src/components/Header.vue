@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 import SvgIcon from '@jamescoyle/vue-icon';
 import { mdiMenu } from '@mdi/js';
