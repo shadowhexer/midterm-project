@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  const modelImage = new URL('@/assets/Picsart_23-04-07_20-07-57-249%20[problembo.com]%20(1)%20(1).png', import.meta.url).href;
+  const modelImage = new URL('./assets/Picsart_23-04-07_20-07-57-249%20[problembo.com]%20(1)%20(1).png', import.meta.url).href;
 </script>
 
 <script lang="ts">
