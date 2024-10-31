@@ -1,162 +1,106 @@
 <template>
     <!--services-------------------->
-    <section id="services">
+    <v-container class="w-100 h-screen d-flex my-10" jusdtify="center" align="center" id="services">
         <!--heading-------------->
-        <div class="s-heading">
-            <h1>Services</h1>
-            <p>Here Is The Some Servies Which We Provide You.</p>
-        </div>
+        <v-row justify="center" class="text-center ma-5">
+            <v-col cols="12">
+                <p class="text-h3 ma-0 text-black">Services</p>
+                <p class="text-subtitle-1 text-grey ma-0">Here are some services we provide for you.</p>
+            </v-col>
+        </v-row>
         <!--services-box-container--------->
-        <div class="b-container">
+        <v-row justify="center" align-content-center class="ma-5 d-flex flex-md-wrap" width="350px" height="500px">
             <!--box-1---------------->
-            <div class="s-box">
-                <!--img------------->
-                <div class="s-b-img">
-                    <!--type----------->
-                    <div class="s-type">Front-End</div>
-                    <!--name------->
-                    <img src="C:/Users/HEXER/Pictures/Acer/PicsArt_08-24-07.14.53.jpg">
-                </div>
-                <!--text----------------->
-                <div class="s-b-text">
-                    <a href="#">With Divi, every part of your website is customizable. You have complete freedom to
-                        create the perfect website for you or your clients. Easily change colors, fonts and text styles.
-                        Apply stunning animations.</a>
-                </div>
-            </div>
-            <!--box-2---------------->
-            <div class="s-box">
-                <!--img------------->
-                <div class="s-b-img">
-                    <!--type----------->
-                    <div class="s-type">Back-End</div>
-                    <!--name------->
-                    <img src="C:/Users/HEXER/Pictures/Acer/Picsart_23-10-19_22-07-33-623.jpg">
-                </div>
-                <!--text----------------->
-                <div class="s-b-text">
-                    <a href="#">With Divi, every part of your website is customizable. You have complete freedom to
-                        create the perfect website for you or your clients. Easily change colors, fonts and text styles.
-                        Apply stunning animations.</a>
-                </div>
-            </div>
+            <v-col cols="12" md="4">
+                <v-card class="s-box d-flex text-center rounded-lg overflow-hidden" align="center" outlined>
+                    <!--img------------->
+                    <v-img class="w-100 h-75" src="/src/assets/PicsArt_08-24-07.14.53.jpg">
+                        <p class="s-type text-white">Front-End</p>
+                    </v-img>
+                    <!--text----------------->
+                    <v-card-text class="w-100 h-33 text-center justify-center align-center">
+                        <p class="ma-0 text-subtitle-1 text-white overflow-hidden">With Divi, every part of your website is customizable. You
+                            have complete freedom to
+                            create the perfect website for you or your clients. Easily change colors, fonts and text
+                            styles.
+                            Apply stunning animations.</p>
+                    </v-card-text>
+                </v-card>
+            </v-col>
+            <v-col cols="12" md="4">
+                <v-card class="s-box d-flex text-center rounded-lg overflow-hidden" align="center" outlined>
+                    <!--img------------->
+                    <v-img class="w-100 h-70" src="/src/assets/Picsart_23-10-19_22-07-33-623.jpg">
+                        <p class="s-type text-white">Back-End</p>
+                    </v-img>
+                    <!--text----------------->
+                    <v-card-text class="w-100 h-33 text-center justify-center align-center">
+                        <p class="ma-0 text-subtitle-1 text-white overflow-hidden">With Divi, every part of your website is customizable. You
+                            have complete freedom to
+                            create the perfect website for you or your clients. Easily change colors, fonts and text
+                            styles.
+                            Apply stunning animations.</p>
+                    </v-card-text>
+                </v-card>
+            </v-col>
             <!--box-3---------------->
-            <div class="s-box">
-                <!--img------------->
-                <div class="s-b-img">
-                    <!--type----------->
-                    <div class="s-type">SEO</div>
-                    <!--name------->
-                    <img src="C:/Users/HEXER/Pictures/Acer/Picsart_24-09-11_07-01-12-866_cropped.jpg">
-                </div>
-                <!--text----------------->
-                <div class="s-b-text">
-                    <a href="#">With Divi, every part of your website is customizable. You have complete freedom to
-                        create the perfect website for you or your clients. Easily change colors, fonts and text styles.
-                        Apply stunning animations.</a>
-                </div>
-            </div>
-        </div>
-    </section>
+            <v-col cols="12" md="4">
+                <v-card class="s-box d-flex text-center rounded-lg overflow-hidden" align="center" outlined>
+                    <!--img------------->
+                    <v-img class="w-100 h-70" src="/src/assets/Picsart_24-09-11_07-01-12-866_cropped.jpg">
+                        <p class="s-type text-white">Design</p>
+                    </v-img>
+                    <!--text----------------->
+                    <v-card-text class="w-100 h-33 text-center justify-center align-center">
+                        <p class="ma-0 text-subtitle-1 text-white overflow-hidden">With Divi, every part of your website is customizable. You
+                            have complete freedom to
+                            create the perfect website for you or your clients. Easily change colors, fonts and text
+                            styles.
+                            Apply stunning animations.</p>
+                    </v-card-text>
+                </v-card>
+            </v-col>
+        </v-row>
+    </v-container>
 
 </template>
 
 <style scoped>
 #services {
-    width: 100%;
-    height: 100vh;
     box-sizing: border-box;
     font-family: calibri;
-    display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     padding-top: 40px;
-
-}
-
-.s-heading h1 {
-    color: #FFFFFF;
-    font-size: 3rem;
-    margin: 0px;
-    padding: 0px;
-
-}
-
-.s-heading p {
-    color: rgba(255, 255, 255, 0.30);
-    font-size: 1rem;
-    margin: 0px;
-    padding: 0px;
-}
-
-.s-heading {
-    text-align: center;
-    margin: 20px 0px;
 }
 
 .s-box {
     background-color: #2B2B2B;
-    width: 350px;
-    height: 500px;
-    margin: 20px;
-    border-radius: 10px;
-    overflow: hidden;
+    flex-direction: column;
     box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
-    position: relative;
 }
 
-.b-container {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-
-
+.s-box:hover {
+    transform: translateY(-10px);
+    transition: all ease 0.3s;
 }
 
-.s-b-img {
-    width: 100%;
-    height: 70%;
-
-}
-
-.s-b-img img {
-    width: 100%;
-    height: 100%;
-
-}
-
-.s-b-text {
-    width: 100%;
-    height: 30%;
+.v-card-text {
     background-color: #1E1E1E;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
 }
 
-.s-b-text a {
-    margin: 0px;
-    color: #FFFFFF;
-    font-size: 1.1rem;
+.v-card-text p {
     font-family: calibri;
     display: block;
     display: -webkit-box;
     max-width: 80%;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
-    overflow: hidden;
     text-overflow: ellipsis;
-}
-
-.s-b-text a:hover {
-    color: rgba(255, 255, 255, 0.50)
 }
 
 .s-type {
     font-family: calibri;
-    color: #FFFFFF;
     background-color: #151515;
     padding: 10px 15px;
     position: absolute;
@@ -168,20 +112,10 @@
     box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
 }
 
-.s-box:hover {
-    transform: translateY(-10px);
-    transition: all ease 0.3s;
-
-}
-
 @media(max-width:1190px) {
 
     #services {
         height: auto;
-    }
-
-    .b-container {
-        flex-wrap: wrap;
     }
 
     .s-box {
@@ -194,10 +128,10 @@
 
 }
 
-@media(max-width:400px){
-	.s-box{
-		width: 100%;
-		height:400px;
-	}
+@media(max-width:400px) {
+    .s-box {
+        width: 100%;
+        height: 400px;
+    }
 }
 </style>
