@@ -2,6 +2,7 @@
 import emailjs from '@emailjs/browser'
 
 export default {
+    name: "ContactView",
     data() {
         return {
             formData: {
