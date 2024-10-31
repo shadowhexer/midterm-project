@@ -4,6 +4,10 @@
     import img3 from '@/assets/Picsart_24-09-11_07-01-12-866_cropped.jpg'
 </script>
 
+<script>
+    export default { name: 'ServicesView' }
+</script>
+
 <template>
     <!--services-------------------->
     <v-container class="w-100 h-screen d-flex my-10" jusdtify="center" align="center" id="services">

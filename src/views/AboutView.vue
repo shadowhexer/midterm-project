@@ -2,6 +2,10 @@
     import img from '@/assets/PicsArt_09-05-12.44.56_cropped.jpg'
 </script>
 
+<script>
+    export default { name: 'AboutView' }
+</script>
+
 <template>
     <v-container fluid>
         <v-row id="about" class="d-flex w-100 h-100 position-relative" align="center" justify="space-between">

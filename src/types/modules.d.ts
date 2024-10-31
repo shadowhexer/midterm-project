@@ -1,5 +1,7 @@
 // src/shims-vue.d.ts
 declare module '../views/HomeView.vue';
+declare module '../views/AboutView.vue';
+declare module '../views/ServicesView.vue';
 declare module '../views/ContactView.vue';
 declare module '@jamescoyle/vue-icon';
 declare module '*.png' {
