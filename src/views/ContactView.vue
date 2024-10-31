@@ -1,5 +1,6 @@
 <script lang="ts">
 import emailjs from '@emailjs/browser'
+import Vue from 'vue'
 
 export default {
     name: "ContactView",
@@ -10,8 +11,8 @@ export default {
             message: "",
         },
         rules: {
-            required: (value: String) => !!value || "This field is required",
-            email: (value: String) => {
+            required: (value: string) => !!value || "This field is required",
+            email: (value: string) => {
                 const pattern = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
                 return pattern.test(value) || "Invalid email format";
             },
@@ -20,15 +21,10 @@ export default {
         loading: false,
         valid: false,
     }),
-    computed: {
-        form(): Vue {
-            return this.$refs.contactForm as Vue
-        }
-    },
     methods: {
         submitForm() {
             // Validate form before submitting
-            if (!this.form.validate()) {
+            if (!(this.$refs.contactForm as Vue & { validate: () => boolean }).validate()) {
                 return;
             }
 
@@ -50,7 +46,7 @@ export default {
                         email: "",
                         message: "",
                     };
-                    this.form.reset(); // Reset Vuetify form validation
+                    (this.$refs.contactForm as Vue & { reset: () => boolean }).reset(); // Reset Vuetify form validation
                 },
                     (error) => {
                         // Handle form submission error here
