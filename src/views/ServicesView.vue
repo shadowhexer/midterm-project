@@ -1,5 +1,7 @@
 <script setup lang="ts">
-    import img3 from '/Picsart_24-09-11_07-01-12-866_cropped.jpg'
+    import Img_1 from '@/assets/PicsArt_08-24-07.14.53.jpg'
+    import Img_2 from '@/assets/Picsart_23-10-19_22-07-33-623.jpg'
+    import Img_3 from '@/assets/Picsart_24-09-11_07-01-12-866_cropped.jpg'
 </script>
 
 <script lang="ts">
@@ -22,7 +24,7 @@
             <v-col cols="12" md="4">
                 <v-card class="s-box d-flex text-center rounded-lg overflow-hidden" align="center" outlined>
                     <!--img------------->
-                    <v-img class="w-100 h-75" :src="'/PicsArt_08-24-07.14.53.jpg'">
+                    <v-img class="w-100 h-75" :src="Img_1">
                         <p class="s-type text-white">Front-End</p>
                     </v-img>
                     <!--text----------------->
@@ -34,7 +36,7 @@
             <v-col cols="12" md="4">
                 <v-card class="s-box d-flex text-center rounded-lg overflow-hidden" align="center" outlined>
                     <!--img------------->
-                    <v-img class="w-100 h-70" :src="'/Picsart_23-10-19_22-07-33-623.jpg'">
+                    <v-img class="w-100 h-70" :src="Img_2">
                         <p class="s-type text-white">Back-End</p>
                     </v-img>
                     <!--text----------------->
@@ -47,7 +49,7 @@
             <v-col cols="12" md="4">
                 <v-card class="s-box d-flex text-center rounded-lg overflow-hidden" align="center" outlined>
                     <!--img------------->
-                    <v-img class="w-100 h-70" :src="img3">
+                    <v-img class="w-100 h-70" :src="Img_3">
                         <p class="s-type text-white">Design</p>
                     </v-img>
                     <!--text----------------->
