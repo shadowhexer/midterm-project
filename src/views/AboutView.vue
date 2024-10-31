@@ -1,3 +1,7 @@
+<script setup>
+    import img from '@/assets/PicsArt_09-05-12.44.56_cropped.jpg'
+</script>
+
 <template>
     <v-container fluid>
         <v-row id="about" class="d-flex w-100 h-100 position-relative" align="center" justify="space-between">
@@ -23,7 +27,7 @@
 
             <v-col class="about-model" cols="12" md="5">
                 <v-img 
-                    src="/src/assets/PicsArt_09-05-12.44.56_cropped.jpg" 
+                    :src="img" 
                     alt="model"
                     class="model-image rounded-circle mt-12 position-fixed"
                     justify="center"

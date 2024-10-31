@@ -1,3 +1,7 @@
+<script setup lang="ts">
+  const modelImage = new URL('@/assets/Picsart_23-04-07_20-07-57-249%20[problembo.com]%20(1)%20(1).png', import.meta.url).href;
+</script>
+
 <script lang="ts">
 import SvgIcon from '@jamescoyle/vue-icon';
 import { mdiFacebook, mdiTwitter, mdiReddit, mdiYoutube } from '@mdi/js';
@@ -8,7 +12,6 @@ export default {
     SvgIcon
   },
   data: () => ({
-    modelImage: "./src/assets/Picsart_23-04-07_20-07-57-249%20[problembo.com]%20(1)%20(1).png",
     socialLinks: [
       { icon: mdiFacebook, url: "https://facebook.com/ar.manlangit10", color: "#3b5998" },
       { icon: mdiTwitter, url: "https://x.com/Chelz_4L", color: "#1da1f2" },
@@ -43,6 +46,7 @@ export default {
         <v-col class="home-model d-none d-xs-flex d-sm-none d-md-flex">
           <v-img
             :src="modelImage"
+            class="rounded-circle"
             alt="model"
             max-width="50%"
             contain
@@ -217,6 +221,4 @@ export default {
     margin-top: 50px;
   }
 }
-
-
 </style>

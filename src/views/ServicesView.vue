@@ -1,3 +1,9 @@
+<script setup>
+    import img1 from '@/assets/PicsArt_08-24-07.14.53.jpg';
+    import img2 from '@/assets/Picsart_23-10-19_22-07-33-623.jpg'
+    import img3 from '@/assets/Picsart_24-09-11_07-01-12-866_cropped.jpg'
+</script>
+
 <template>
     <!--services-------------------->
     <v-container class="w-100 h-screen d-flex my-10" jusdtify="center" align="center" id="services">
@@ -14,32 +20,24 @@
             <v-col cols="12" md="4">
                 <v-card class="s-box d-flex text-center rounded-lg overflow-hidden" align="center" outlined>
                     <!--img------------->
-                    <v-img class="w-100 h-75" src="/src/assets/PicsArt_08-24-07.14.53.jpg">
+                    <v-img class="w-100 h-75" :src="img1">
                         <p class="s-type text-white">Front-End</p>
                     </v-img>
                     <!--text----------------->
                     <v-card-text class="w-100 h-33 text-center justify-center align-center">
-                        <p class="ma-0 text-subtitle-1 text-white overflow-hidden">With Divi, every part of your website is customizable. You
-                            have complete freedom to
-                            create the perfect website for you or your clients. Easily change colors, fonts and text
-                            styles.
-                            Apply stunning animations.</p>
+                        <p class="ma-0 text-subtitle-1 text-xs-subtitle-2 text-white overflow-x-hidden">I still have no idea what to put here so instead, I put Chelsea as a placeholder. If in any case the photo as well as this description has not changed after I submit this project, then most likely I forgot about this task. Pardon for the inconvenience.</p>
                     </v-card-text>
                 </v-card>
             </v-col>
             <v-col cols="12" md="4">
                 <v-card class="s-box d-flex text-center rounded-lg overflow-hidden" align="center" outlined>
                     <!--img------------->
-                    <v-img class="w-100 h-70" src="/src/assets/Picsart_23-10-19_22-07-33-623.jpg">
+                    <v-img class="w-100 h-70" :src="img2">
                         <p class="s-type text-white">Back-End</p>
                     </v-img>
                     <!--text----------------->
                     <v-card-text class="w-100 h-33 text-center justify-center align-center">
-                        <p class="ma-0 text-subtitle-1 text-white overflow-hidden">With Divi, every part of your website is customizable. You
-                            have complete freedom to
-                            create the perfect website for you or your clients. Easily change colors, fonts and text
-                            styles.
-                            Apply stunning animations.</p>
+                        <p class="ma-0 text-subtitle-1 text-xs-subtitle-2 text-white overflow-x-hidden">I'm still planning what to put in here. Maybe a game info perhaps? Or my game concepts and ideas? If that's the case, then I have to create probably an extra page or simply a modal after clicking the card.</p>
                     </v-card-text>
                 </v-card>
             </v-col>
@@ -47,16 +45,12 @@
             <v-col cols="12" md="4">
                 <v-card class="s-box d-flex text-center rounded-lg overflow-hidden" align="center" outlined>
                     <!--img------------->
-                    <v-img class="w-100 h-70" src="/src/assets/Picsart_24-09-11_07-01-12-866_cropped.jpg">
+                    <v-img class="w-100 h-70" :src="img3">
                         <p class="s-type text-white">Design</p>
                     </v-img>
                     <!--text----------------->
                     <v-card-text class="w-100 h-33 text-center justify-center align-center">
-                        <p class="ma-0 text-subtitle-1 text-white overflow-hidden">With Divi, every part of your website is customizable. You
-                            have complete freedom to
-                            create the perfect website for you or your clients. Easily change colors, fonts and text
-                            styles.
-                            Apply stunning animations.</p>
+                        <p class="ma-0 text-subtitle-1 text-xs-subtitle-2 text-white overflow-x-hidden">You can actually use the Feedback form in the Contact Tab to email me about your idea(s). It is a fully functional feedback form that uses an API to forward your responses to me as emails.</p>
                     </v-card-text>
                 </v-card>
             </v-col>

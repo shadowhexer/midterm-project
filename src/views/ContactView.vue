@@ -25,7 +25,8 @@ export default {
     }),
     methods: {
         submitForm() {
-            // Validate form before submitting
+            // Validate form before submitting 
+            // (https://stackoverflow.com/questions/52109471/typescript-in-vue-property-validate-does-not-exist-on-type-vue-element)
             if (!(this.$refs.contactForm as VForm & { validate: () => boolean }).validate()) {
                 return;
             }
