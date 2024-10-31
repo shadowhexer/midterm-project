@@ -1,26 +1,34 @@
 <template>
     <v-container fluid>
-        <v-row id="about" align="center" justify="center">
-            <v-col class="about-text" cols="12">
-                <h1>About this Page</h1>
-                <p>
+        <v-row id="about" class="d-flex w-100 h-100 position-relative" align="center" justify="space-between">
+            <v-col class="about-text w-100 text-left mb-5" cols="12" md="7">
+                <p class="text-h2 text-green-darken-3 mb-3">About this Page</p>
+                <p class=" text-subtitle-1 text-black ">
                     This page was created as a personal page meant to comply with the IT110 Midterm Exam.
                     If details here do not change after I finished the whole project means I forgot to change
                     this part. Please forgive me for the inconvenience. This page is also a template from
                     Going-To Internet which I translated to VueJS + Vuetify from native HTML + CSS. Click the
                     button below to visit the site.
                 </p>
-                <v-btn color="green" href="https://www.goingtointernet.com/2020/07/make-personal-website.html"
-                    target="_blank" variant="flat" class="button">
+                <v-btn 
+                    color="green" 
+                    href="https://www.goingtointernet.com/2020/07/make-personal-website.html"
+                    target="_blank" 
+                    variant="flat"
+                    class="mt-5 rounded-xl"
+                >
                     More Details
                 </v-btn>
             </v-col>
 
-            <v-col class="about-model" cols="12">
+            <v-col class="about-model" cols="12" md="5">
                 <v-img 
                     src="/src/assets/PicsArt_09-05-12.44.56_cropped.jpg" 
                     alt="model"
-                    class="rounded-circle"
+                    class="model-image rounded-circle mt-12 position-fixed"
+                    justify="center"
+                    width="400"
+                    height="400"
                     contain />
             </v-col>
         </v-row>
@@ -29,50 +37,20 @@
 
 <style scoped>
 #about {
-    width: 100%;
-    height: 100%;
     box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     padding: 50px 5% 0px 5%;
-    position: relative;
 }
 
-.about-text {
+p {
     font-family: 'Trebuchet MS', sans-serif;
-    width: 100%;
-    text-align: left;
-    margin-bottom: 20px;
 }
 
-.about-text h1 {
-    font-size: 4rem;
-    color: green;
-}
-
-.about-text h1,
-h2 {
-    margin: 0px;
-    padding: 0px;
-}
-
-.about-text p {
-    font-size: 1.1rem;
-    color: rgba(0, 0, 0, 0.9);
-}
-
-.about-text .button {
-    margin-top: 20px;
+.v-btn {
     width: 180px;
     height: 40px;
-    border-radius: 20px;
-    border: none;
 }
 
 .about-model {
-    max-width: 100%;
-    max-height: 100%;
     object-fit: cover !important;
     -moz-background-size: cover;
     -webkit-background-size: cover;
@@ -81,7 +59,12 @@ h2 {
     transition: transform 1s ease, max-height 1s ease, max-width 1s ease;
 }
 
-.about-text .button:hover {
+.model-image {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.v-btn:hover {
     background-color: #FFFFFF;
     transition: all ease 0.3s;
 }
@@ -97,13 +80,12 @@ h2 {
     }
 }
 
-@media (min-width: 1190px) and (min-height: 1080px) {
+@media (min-height: 1080px) {
     .about-model {
         position: fixed !important;
         width: 1000px;
         height: 900px;
-        left: 45%;
-        margin-top: 200px;
+        margin-top: 300px;
     }
 }
 
@@ -115,24 +97,32 @@ h2 {
 
 @media (min-width: 1024px) and (max-width: 1189.9px) {
 
-    .about-model {
-        position: fixed !important;
-        width: 900px;
-        height: 900px;
+    .v-row {
+        position: fixed;
+        padding: 50px 0% 0px 0% !important;
         left: 40%;
-        margin-top: 160px;
-        transform: translateX(10px);
     }
+
+    .about-model {
+        position: fixed;
+        margin-left: 30px;
+        margin-top: 650px;
+    }
+
 }
 
-@media(min-width: 970px) and (max-width:1023.9px) {
-    #about {
-        padding: 50px 20% 0px 10%;
-        position: absolute;
+@media (min-width: 970px) and (max-width: 1023.9px) {
+    .v-row {
+        position: fixed;
+        padding: 50px 0% 0px 0% !important;
+        left: 40%;
+        margin-top: 100px;
     }
 
     .about-model {
-        display: none;
+        position: fixed;
+        margin-left: 30px;
+        margin-top: 650px;
     }
 }
 
@@ -150,10 +140,6 @@ h2 {
 
     .about-text {
         width: 90%;
-    }
-
-    .about-text h1 {
-        font-size: 4rem;
     }
 }
 </style>

@@ -25,24 +25,24 @@ export default {
 
     <v-container fluid>
       <!-- Main Section -->
-      <v-row class="home" align="center" justify="center">
+      <v-row id="home" class="overflow-hidden" align="center" justify="center">
         
         <!-- Text Section -->
         <v-col cols="12" md="6">
-          <div class="name">
-            <p>Hey there!</p>
-            <h1>It's <span style="color: green">Austin</span> Rey</h1>
-            <p class="details">
+          <div class="intro position-absolute w-50">
+            <p class="text-h6 text-black">Hey there!</p>
+            <h1 class="name text-h3 my-3">It's <span style="color: green">Austin</span> Rey</h1>
+            <p class="text-subtitle-1">
               Welcome to this page. I don't have much thing to say but, how about a tour around here? This page is meant for compliance on the IT110 Midterm Exam so not all components are well optimised. Anyway, enjoy yourself.
             </p>
             <br>
-            <p class="details">Oh, watch out for the other project. I heard it's called 
+            <p class="text-subtitle-1">Oh, watch out for the other project. I heard it's called 
               <span class="font-weight-bold" style="color: rgb(238 255 0 / 20%);">OnlyCorn</span>.</p>
           </div>
         </v-col>
 
         <!-- Image Section -->
-        <v-col class="home-model">
+        <v-col class="home-model d-none d-xs-flex d-sm-none d-md-flex">
           <v-img
             :src="modelImage"
             alt="model"
@@ -54,7 +54,7 @@ export default {
       </v-row>
 
       <!-- Social Media Links -->
-      <v-row class="social" align="center" justify="center">
+      <v-row class="social position-absolute d-flex" align="center" justify="center">
         <v-btn icon 
           v-for="(link, index) in socialLinks" 
           :key="index"
@@ -75,51 +75,34 @@ export default {
 </template>
 
 <style scoped>
-
-#home {
-  font-family: 'Trebuchet MS', sans-serif;
-  overflow: hidden !important;
+#home p {
+  font-family: 'Trebuchet MS', sans-serif !important;
+  color: #6c707c;
 }
 
 .home-model {
   max-width: 100%; /* Allows the image to shrink on smaller screens */
   max-height: 100%;
   object-fit: cover !important;
-  -moz-background-size: cover;
-  -webkit-background-size: cover;
-  -o-background-size: cover;
   background-size: cover;
 }
 
-.name {
-  width: 500px;
-  position: absolute;
+.intro {
   left: 20%;
   top: 50%;
   transform: translate(-20%, -50%);
 }
 
-.name p:nth-child(1),
-.name .details {
-  color: #6c707c;
-  font-size: 16px;
-}
-
-.name h1 {
+.name {
   font-family: Poppins;
-  font-size: 40px;
-  margin: 0px;
   letter-spacing: 3px;
   color: #292929;
 }
 
 
 .social {
-  position: absolute;
   left: 50px;
   bottom: 50px;
-  display: flex;
-
 }
 
 .social a {
@@ -127,13 +110,9 @@ export default {
 
 }
 
-.social i {
-  color: rgba(18, 17, 17, 0.40);
-}
-
 .social a:hover i {
-  color: #17d1ac;
-  transition: all ease 0.5s;
+  color: green !important;
+  transition: all ease 0.2s;
 }
 
 @media (min-height: 1080px) and (min-width: 1920px) {
@@ -195,14 +174,14 @@ export default {
     margin-top: 255px;
   }
 
-  .name{
-		left: 10%;
+  .intro{
+		left: 20%;
 		top: 50%;
 		transform: translate(-10%,-50%);
 	}
 }
 
-@media (min-width: 970px) and (max-width: 1024px) {
+@media (min-width: 960px) and (max-width: 1023.9px) {
 
   .home-model {
     position: fixed !important;
@@ -214,26 +193,32 @@ export default {
 
 }
 
-@media(max-width:970px){
-  .home-model{
-		display: none;
-	}
+@media(max-width:960px){
   
-	.name{
+	.intro{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 		left: 50%;
-		top: 50%;
 		transform: translate(-50%,-50%);
 	}
 }
 
 @media(max-width:600px){
-	.name{
-		width:60%;
-	}
-
 	.social{
+    display: block;
 		left: 30px;
 		transform: translateX(-10px);
 	}
 }
+
+@media (max-height: 850px) {
+  .intro {
+    overflow-y:visible;
+    margin-top: 50px;
+  }
+}
+
+
 </style>
