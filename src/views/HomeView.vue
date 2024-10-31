@@ -1,9 +1,9 @@
 <script>
-import { SvgIcon } from '@jamescoyle/vue-icon';
+import SvgIcon from '@jamescoyle/vue-icon';
 import { mdiFacebook, mdiTwitter, mdiReddit, mdiYoutube } from '@mdi/js';
 
 export default {
-  name: "my-component",
+  name: "HomeView",
   components: {
     SvgIcon
   },

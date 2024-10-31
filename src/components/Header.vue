@@ -1,9 +1,9 @@
 <script lang="ts">
-import { SvgIcon } from '@jamescoyle/vue-icon';
+import SvgIcon from '@jamescoyle/vue-icon';
 import { mdiMenu } from '@mdi/js';
 
 export default {
-  name: "my-component",
+  name: "Header",
   components: {
     SvgIcon
   },
