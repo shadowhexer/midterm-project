@@ -1,27 +1,25 @@
-<script>
+<script lang="ts">
 import emailjs from '@emailjs/browser'
 
 export default {
     name: "ContactView",
-    data() {
-        return {
-            formData: {
-                name: "",
-                email: "",
-                message: "",
+    data: () => ({
+        formData: {
+            name: "",
+            email: "",
+            message: "",
+        },
+        rules: {
+            required: (value) => !!value || "This field is required",
+            email: (value) => {
+                const pattern = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
+                return pattern.test(value) || "Invalid email format";
             },
-            rules: {
-                required: (value) => !!value || "This field is required",
-                email: (value) => {
-                    const pattern = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
-                    return pattern.test(value) || "Invalid email format";
-                },
-            },
-            max: 20,
-            loading: false,
-            valid: false,
-        };
-    },
+        },
+        max: 20,
+        loading: false,
+        valid: false,
+    }),
     methods: {
         submitForm() {
             // Validate form before submitting

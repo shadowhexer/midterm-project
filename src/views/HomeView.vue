@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 import SvgIcon from '@jamescoyle/vue-icon';
 import { mdiFacebook, mdiTwitter, mdiReddit, mdiYoutube } from '@mdi/js';
 
@@ -7,17 +7,15 @@ export default {
   components: {
     SvgIcon
   },
-  data() {
-    return {
-      modelImage: "./src/assets/Picsart_23-04-07_20-07-57-249%20[problembo.com]%20(1)%20(1).png",
-      socialLinks: [
-        { icon: mdiFacebook, url: "https://facebook.com/ar.manlangit10", color: "#3b5998" },
-        { icon: mdiTwitter, url: "https://x.com/Chelz_4L", color: "#1da1f2" },
-        { icon: mdiReddit, url: "https://reddit.com/user/Chelz4L", color: "#FF4500" },
-        { icon: mdiYoutube, url: "https://youtube.com/@hexer-chan5303", color: "#ff0000" }
-      ]
-    };
-  }
+  data: () => ({
+    modelImage: "./src/assets/Picsart_23-04-07_20-07-57-249%20[problembo.com]%20(1)%20(1).png",
+    socialLinks: [
+      { icon: mdiFacebook, url: "https://facebook.com/ar.manlangit10", color: "#3b5998" },
+      { icon: mdiTwitter, url: "https://x.com/Chelz_4L", color: "#1da1f2" },
+      { icon: mdiReddit, url: "https://reddit.com/user/Chelz4L", color: "#FF4500" },
+      { icon: mdiYoutube, url: "https://youtube.com/@hexer-chan5303", color: "#ff0000" }
+    ]
+  })
 };
 </script>
 
