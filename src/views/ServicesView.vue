@@ -1,7 +1,7 @@
 <script setup lang="ts">
-    import img1 from '/assets/PicsArt_08-24-07.14.53.jpg';
-    import img2 from '/assets/Picsart_23-10-19_22-07-33-623.jpg'
-    import img3 from '/assets/Picsart_24-09-11_07-01-12-866_cropped.jpg'
+    import img1 from '/PicsArt_08-24-07.14.53.jpg';
+    import img2 from '/Picsart_23-10-19_22-07-33-623.jpg'
+    import img3 from '/Picsart_24-09-11_07-01-12-866_cropped.jpg'
 </script>
 
 <script lang="ts">

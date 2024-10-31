@@ -1,5 +1,5 @@
 <script setup lang="ts">
-    import img from '/assets/PicsArt_09-05-12.44.56_cropped.jpg'
+    import img from './PicsArt_09-05-12.44.56_cropped.jpg'
 </script>
 
 <script lang="ts">
