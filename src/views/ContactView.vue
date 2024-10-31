@@ -1,6 +1,7 @@
 <script lang="ts">
 import emailjs from '@emailjs/browser'
-import Vue from 'vue'
+import { VForm } from 'vuetify/components';
+import { ref } from 'vue'
 
 export default {
     name: "ContactView",
@@ -17,6 +18,7 @@ export default {
                 return pattern.test(value) || "Invalid email format";
             },
         },
+        form: VForm,
         max: 20,
         loading: false,
         valid: false,
@@ -24,7 +26,7 @@ export default {
     methods: {
         submitForm() {
             // Validate form before submitting
-            if (!(this.$refs.contactForm as Vue & { validate: () => boolean }).validate()) {
+            if (!(this.$refs.contactForm as VForm & { validate: () => boolean }).validate()) {
                 return;
             }
 
@@ -46,7 +48,7 @@ export default {
                         email: "",
                         message: "",
                     };
-                    (this.$refs.contactForm as Vue & { reset: () => boolean }).reset(); // Reset Vuetify form validation
+                    (this.$refs.contactForm as VForm & { reset: () => boolean }).reset(); // Reset Vuetify form validation
                 },
                     (error) => {
                         // Handle form submission error here
