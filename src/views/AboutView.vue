@@ -1,8 +1,8 @@
-<script setup>
+<script setup lang="ts">
     import img from '@/assets/PicsArt_09-05-12.44.56_cropped.jpg'
 </script>
 
-<script>
+<script lang="ts">
     export default { name: 'AboutView' }
 </script>
 
