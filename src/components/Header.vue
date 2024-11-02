@@ -12,7 +12,7 @@ export default {
     lists: [
       { text: 'Home', link: '/' },
       { text: 'About', link: '/about' },
-      { text: 'Services', link: '/services' },
+      { text: 'Projects', link: '/projects' },
       { text: 'Contact', link: '/contact' }
     ],
     showMobileMenu: false,
