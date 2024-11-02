@@ -73,8 +73,8 @@ export default {
         flex-grow: 1;
     }
 
-    .v-img {
-        object-fit: cover;
+    .v-img__img--contain {
+        object-fit: cover !important;
     }
 
 }
