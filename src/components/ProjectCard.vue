@@ -1,13 +1,29 @@
 <template>
-    <v-card class="s-box d-flex text-center rounded-lg overflow-hidden" align="center" outlined>
+    <v-card class="s-box d-flex text-center rounded-lg overflow-hidden" align="center" outlined
+        @click="showModal = true">
         <!--img------------->
         <v-img class="w-100 h-75" :src="image">
             <p class="s-type text-white">{{ title }}</p>
         </v-img>
         <!--text----------------->
         <v-card-text class="w-100 h-33 text-center justify-center align-center">
-            <p class="ma-0 text-subtitle-1 text-xs-subtitle-2 text-white overflow-x-hidden">{{ caption }}</p>
+            <p class="ma-0 text-subtitle-1 text-xs-subtitle-2 text-white overflow-hidden">{{ caption }}</p>
         </v-card-text>
+
+        <v-dialog v-model="showModal" max-width="500">
+            <v-card>
+                <v-img class="w-100 h-75" :src="image">
+                    <p class="s-type text-white">{{ title }}</p>
+                </v-img>
+                <v-card-text class="w-100 h-33 text-center justify-center align-center">
+                    <p class="ma-0 text-subtitle-1 text-xs-subtitle-2 text-white">{{ caption }}</p>
+                </v-card-text>
+                <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn color="primary" @click="showModal = false">Close</v-btn>
+                </v-card-actions>
+            </v-card>
+        </v-dialog>
     </v-card>
 </template>
 
@@ -27,7 +43,11 @@ export default {
             type: String,
             required: true
         }
-    }
+    },
+
+    data: () => ({
+        showModal: false,
+    })
 }
 </script>
 
