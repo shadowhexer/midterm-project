@@ -1,7 +1,6 @@
 <script lang="ts">
 import emailjs from '@emailjs/browser'
 import { VForm } from 'vuetify/components';
-import { ref } from 'vue'
 
 export default {
     name: "ContactView",
@@ -18,7 +17,7 @@ export default {
                 return pattern.test(value) || "Invalid email format";
             },
         },
-        form: VForm,
+        form: null as any,
         max: 20,
         loading: false,
         valid: false,
@@ -27,7 +26,7 @@ export default {
         submitForm() {
             // Validate form before submitting 
             // (https://stackoverflow.com/questions/52109471/typescript-in-vue-property-validate-does-not-exist-on-type-vue-element)
-            if (!(this.$refs.contactForm as VForm & { validate: () => boolean }).validate()) {
+            if (!(this.$refs.contactForm as any).validate()) {
                 return;
             }
 
@@ -49,7 +48,7 @@ export default {
                         email: "",
                         message: "",
                     };
-                    (this.$refs.contactForm as VForm & { reset: () => boolean }).reset(); // Reset Vuetify form validation
+                    (this.$refs.contactForm as any).reset(); // Reset Vuetify form validation
                 },
                     (error) => {
                         // Handle form submission error here

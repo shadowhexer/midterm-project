@@ -2,7 +2,11 @@
 declare module '../views/HomeView.vue';
 declare module '../views/AboutView.vue';
 declare module '../views/ServicesView.vue';
-declare module '../views/ContactView.vue';
+declare module '../views/ContactView.vue' {
+  import { DefineComponent } from 'vue';
+  const component: DefineComponent<{}, {}, any>;
+  export default component;
+}
 declare module '@jamescoyle/vue-icon';
 declare module '*.png' {
   const value: string;
