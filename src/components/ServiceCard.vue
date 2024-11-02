@@ -73,7 +73,7 @@ export default {
         flex-grow: 1;
     }
 
-    .s-b-img img {
+    .v-img {
         object-fit: cover;
     }
 
