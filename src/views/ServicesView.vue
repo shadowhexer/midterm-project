@@ -10,6 +10,10 @@
         name: 'ServicesView',
         components: { ServiceCard },
         data: () => ({
+            title_1: 'Front-End',
+            title_2: 'Back-end',
+            title_3: 'UX/UI',
+            
             caption_1: 'I still have no idea what to put here so instead, I put Chelsea as a placeholder. If in any case the photo as well as this description has not changed after I submit this project, then most likely I forgot about this task. Pardon for the inconvenience.',
 
             caption_2: 'I\'m still planning what to put in here. Maybe a game info perhaps? Or my game concepts and ideas? If that\'s the case, then I have to create probably an extra page or simply a modal after clicking the card.',
@@ -33,14 +37,14 @@
         <v-row justify="center" align-content-center class="ma-5 d-flex flex-md-wrap" width="350px" height="500px">
             <!--box-1---------------->
             <v-col cols="12" md="4">
-                <ServiceCard :image="Img_1" :caption="caption_1" />
+                <ServiceCard :image="Img_1" :title="title_1" :caption="caption_1" />
             </v-col>
             <v-col cols="12" md="4">
-                <ServiceCard :image="Img_2" :caption="caption_2" />
+                <ServiceCard :image="Img_2" :title="title_2" :caption="caption_2" />
             </v-col>
             <!--box-3---------------->
             <v-col cols="12" md="4">
-                <ServiceCard :image="Img_3" :caption="caption_3" />
+                <ServiceCard :image="Img_3" :title="title_3" :caption="caption_3" />
             </v-col>
         </v-row>
     </v-container>

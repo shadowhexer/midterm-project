@@ -2,7 +2,7 @@
     <v-card class="s-box d-flex text-center rounded-lg overflow-hidden" align="center" outlined>
         <!--img------------->
         <v-img class="w-100 h-75" :src="image">
-            <p class="s-type text-white">Front-End</p>
+            <p class="s-type text-white">{{ title }}</p>
         </v-img>
         <!--text----------------->
         <v-card-text class="w-100 h-33 text-center justify-center align-center">
@@ -16,6 +16,10 @@ export default {
     name: "ServiceCard",
     props: {
         image: {
+            type: String,
+            required: true
+        },
+        title: {
             type: String,
             required: true
         },
