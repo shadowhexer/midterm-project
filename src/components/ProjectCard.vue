@@ -15,8 +15,8 @@
                 <v-img class="w-100 h-75" :src="image">
                     <p class="s-type text-white">{{ title }}</p>
                 </v-img>
-                <v-card-text class="w-100 h-33 text-center justify-center align-center">
-                    <p class="ma-0 text-subtitle-1 text-xs-subtitle-2 text-white">{{ caption }}</p>
+                <v-card-text class="w-auto h-auto text-center justify-center align-center">
+                    <p class="text-subtitle-1 text-xs-subtitle-2 text-white overflow-hidden">{{ caption }}</p>
                 </v-card-text>
                 <v-card-actions>
                     <v-spacer></v-spacer>
@@ -62,6 +62,9 @@ export default {
     display: block;
     display: -webkit-box;
     max-width: 80%;
+}
+
+.v-card-text p:not(.v-dialog p) {
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     text-overflow: ellipsis;

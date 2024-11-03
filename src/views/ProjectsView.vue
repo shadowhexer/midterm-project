@@ -14,7 +14,7 @@
             title_2: 'Back-end',
             title_3: 'UX/UI',
 
-            caption_1: 'I still have no idea what to put here so instead, I put Chelsea as a placeholder. If in any case the photo as well as this description has not changed after I submit this project, then most likely I forgot about this task. Pardon for the inconvenience.',
+            caption_1: 'I still have no idea what to put here so instead, I put Chelsea as a placeholder. In case the photo as well as this description has not changed after I submit this project, then most likely I forgot about this task. Pardon for the inconvenience.',
 
             caption_2: 'I\'m still planning what to put in here. Maybe a game info perhaps? Or my game concepts and ideas? If that\'s the case, then I have to create probably an extra page or simply a modal after clicking the card.',
 
