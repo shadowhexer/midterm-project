@@ -64,6 +64,7 @@ export default {
     max-width: 80%;
 }
 
+/* Has no backward compatibility on certain old browsers */
 .v-card-text p:not(.v-dialog p) {
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
