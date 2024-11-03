@@ -32,7 +32,7 @@ export default {
         <v-col cols="12" md="6">
           <div class="intro position-absolute w-50">
             <p class="text-h6 text-black">Hey there!</p>
-            <h1 class="name text-h3 my-3">It's <span style="color: green">Austin</span> Rey</h1>
+            <h1 class="name text-h3 my-3">It's <span class="text-green-darken-3">Austin</span> Rey</h1>
             <p class="text-subtitle-1">
               Welcome to this page. I don't have much thing to say but, how about a tour around here? This page is meant for compliance on the IT110 Midterm Exam so not all components are well optimised. Anyway, enjoy yourself.
             </p>

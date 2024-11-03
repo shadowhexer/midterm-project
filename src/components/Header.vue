@@ -1,6 +1,7 @@
 <script lang="ts">
 import SvgIcon from '@jamescoyle/vue-icon';
 import { mdiMenu } from '@mdi/js';
+import logo from '@/assets/logo.png'
 
 export default {
   name: "Header",
@@ -17,7 +18,8 @@ export default {
     ],
     showMobileMenu: false,
     isMobile: false,
-    path: mdiMenu
+    path: mdiMenu,
+    image: logo
   }),
 
   mounted() {
@@ -56,11 +58,11 @@ export default {
       <v-app-bar :flat="true" color="#242424" app>
 
         <v-toolbar-title>
-          <a href="/" class="logo">ARM</a>
+          <v-img :src="image" class="logo rounded-circle" max-width="50" />
         </v-toolbar-title>
 
-        <nav>
-          <ul :class="{ menu: true }">
+        <nav class="p-0">
+          <ul :class="['d-flex', { menu: true }]">
             <li 
               v-for="(list, l) in lists" 
               :key="l" 
@@ -149,25 +151,8 @@ a {
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
 }
 
-#header .logo {
-  font-size: 25px;
-  font-weight: bold;
-  color: #fffdfd;
-  font-family: Poppins !important;
-  letter-spacing: 2px;
-}
-
-#header .logo:hover {
-  background-color: #29292900;
-  color: rgb(47, 255, 47) !important;
-}
-
-nav {
-  padding: 0;
-}
-
-nav ul {
-  display: flex;
+.logo:hover {
+  filter: contrast(250%);
 }
 
 nav li a {
@@ -191,10 +176,6 @@ nav li a:hover {
   background-color: #29292900;
   color: rgb(47, 255, 47) !important;
   transition: all ease 0.4s;
-}
-
-.lang {
-  display: block;
 }
 
 .toggle {

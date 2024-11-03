@@ -1,5 +1,5 @@
 <script setup lang="ts">
-    import img from '@/assets/PicsArt_09-05-12.44.56_cropped.jpg'
+    import img from '@/assets/author.jpg'
 </script>
 
 <script lang="ts">
@@ -10,12 +10,12 @@
     <v-container fluid>
         <v-row id="about" class="d-flex w-100 h-100 position-relative" align="center" justify="space-between">
             <v-col class="about-text w-100 text-left mb-5" cols="12" md="7">
-                <p class="text-h2 text-green-darken-3 mb-3">About this Page</p>
-                <p class=" text-subtitle-1 text-black ">
+                <p class="text-h2 text-green-darken-3 mb-3 font-weight-bold">About this Page</p>
+                <p class="text-body-1 font-weight-medium text-black ">
                     This page was created as a personal page meant to comply with the IT110 Midterm Exam.
                     If details here do not change after I finished the whole project means I forgot to change
                     this part. Please forgive me for the inconvenience. This page is also a template from
-                    Going-To Internet which I translated to VueJS + Vuetify from native HTML + CSS. Click the
+                    <span class="text-green-darken-3 font-weight-medium">Going-To Internet</span> which I translated to VueJS + Vuetify from native HTML + CSS. Click the
                     button below to visit the site.
                 </p>
                 <v-btn 
@@ -37,7 +37,8 @@
                     justify="center"
                     width="400"
                     height="400"
-                    contain />
+                    cover 
+                />
             </v-col>
         </v-row>
     </v-container>
@@ -50,7 +51,7 @@
 }
 
 p {
-    font-family: 'Trebuchet MS', sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .v-btn {

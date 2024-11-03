@@ -70,11 +70,11 @@ export default {
 </script>
 
 <template>
-    <v-container class="mt-10 my-md-16 my-sm-16" width="700px">
+    <v-container class="mt-10 my-md-16 my-sm-16" min-width="700">
         <v-row justify="center">
             <v-col cols="12">
                 <v-card class="pa-4">
-                    <v-card-title class="text-h4 mb-n3" align="center">
+                    <v-card-title class="text-h4 text-green-darken-3 font-weight-bold mb-n3" align="center">
                         Feedback Form
                     </v-card-title>
                     <v-card-subtitle class="text-caption mb-6" align="center">
@@ -104,10 +104,11 @@ export default {
                         <!-- Submit Button -->
                         <v-card-actions class="mt-4 justify-space-around">
                             <v-btn color="#1ED98B" :loading="loading" :disabled="loading || !valid" @click="submitForm"
-                                variant="flat" block>
-                                Submit
+                                variant="flat" block
+                            >
+                                <span class="font-weight-bold">Submit</span>
                                 <template v-slot:loader>
-                                    <span>Loading...</span>
+                                    <span class="font-weight-bold">Loading...</span>
                                 </template>
                             </v-btn>
                         </v-card-actions>
@@ -132,6 +133,17 @@ export default {
 
     to {
         transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 760px) {
+    .v-container {
+        min-width: auto !important;
+    }
+
+    .v-card-title,
+    .v-card-subtitle {
+        text-wrap: wrap;
     }
 }
 </style>

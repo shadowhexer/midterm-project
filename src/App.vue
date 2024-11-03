@@ -12,7 +12,5 @@ import Header from './components/Header.vue'
 <style>
 body {
   background: #f6f5f7;
-  /* margin: 0px;
-  padding: 0px; */
 }
 </style>
