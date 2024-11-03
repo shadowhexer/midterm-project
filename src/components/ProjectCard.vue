@@ -18,10 +18,10 @@
                 <v-card-text class="w-auto h-auto text-center justify-center align-center">
                     <p class="text-subtitle-1 text-xs-subtitle-2 text-white overflow-hidden">{{ caption }}</p>
                 </v-card-text>
-                <v-card-actions>
+                <!-- <v-card-actions>
                     <v-spacer></v-spacer>
                     <v-btn color="primary" @click="showModal = false">Close</v-btn>
-                </v-card-actions>
+                </v-card-actions> -->
             </v-card>
         </v-dialog>
     </v-card>
